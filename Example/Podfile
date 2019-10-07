@@ -1,0 +1,6 @@
+use_frameworks!
+target 'FSCLoadingView_Tests' do
+  pod 'FSCLoadingView', :path => '../'
+  
+  
+end
