@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FSCLoadingView: UIView {
+public class FSCLoadingView: UIView {
     
     static var current: FSCLoadingView?
         
@@ -16,7 +16,10 @@ class FSCLoadingView: UIView {
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView?
     
     static func fromXIB() -> FSCLoadingView? {
-        return Bundle.main.loadNibNamed("FSCLoadingView", owner: self, options: nil)?[0] as? FSCLoadingView
+        let podBundle = Bundle(for: FSCLoadingView.self)
+        let resourceBundleURL = podBundle.resourceURL?.appendingPathComponent("FSCLoadingView.bundle")
+        let resourceBundle = Bundle(url: resourceBundleURL!)
+        return resourceBundle?.loadNibNamed("FSCLoadingView", owner: self, options: nil)?[0] as? FSCLoadingView
     }
 
     override init(frame: CGRect) {
@@ -27,7 +30,7 @@ class FSCLoadingView: UIView {
         super.init(coder: coder)
     }
     
-    static func show(withSquareSize squareSize: CGFloat = 72.0) {
+    public static func show(withSquareSize squareSize: CGFloat = 72.0) {
         self.current?.superview?.removeFromSuperview()
         
         guard let _window = UIApplication.shared.delegate?.window, let window = _window else {
@@ -53,7 +56,7 @@ class FSCLoadingView: UIView {
         self.current = loadingView
     }
     
-    static func hide() {
+    public static func hide() {
         self.current?.superview?.removeFromSuperview()
     }
     
