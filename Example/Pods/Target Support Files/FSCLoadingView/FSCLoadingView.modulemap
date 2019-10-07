@@ -1,0 +1,6 @@
+framework module FSCLoadingView {
+  umbrella header "FSCLoadingView-umbrella.h"
+
+  export *
+  module * { export * }
+}

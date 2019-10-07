@@ -1,0 +1,16 @@
+PODS:
+  - FSCLoadingView (0.1.0)
+
+DEPENDENCIES:
+  - FSCLoadingView (from `../`)
+
+EXTERNAL SOURCES:
+  FSCLoadingView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FSCLoadingView: 6243475bcf3a8357e979b90d0c692fb627dbf18e
+
+PODFILE CHECKSUM: 8164f62624723e64599a472d619daa9dad002bea
+
+COCOAPODS: 1.7.3
