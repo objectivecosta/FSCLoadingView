@@ -31,7 +31,7 @@ public class FSCLoadingView: UIView {
     }
     
     public static func show(withSquareSize squareSize: CGFloat = 72.0) {
-        self.current?.superview?.removeFromSuperview()
+        self.hide()
         
         guard let _window = UIApplication.shared.delegate?.window, let window = _window else {
             return
@@ -52,11 +52,14 @@ public class FSCLoadingView: UIView {
         view.addSubview(loadingView)
         loadingView.center = view.center
         window.addSubview(view)
+
+        window.isUserInteractionEnabled = false
         
         self.current = loadingView
     }
     
     public static func hide() {
+        window.isUserInteractionEnabled = true
         self.current?.superview?.removeFromSuperview()
     }
     
