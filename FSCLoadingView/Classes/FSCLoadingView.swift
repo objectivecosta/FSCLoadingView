@@ -59,7 +59,10 @@ public class FSCLoadingView: UIView {
     }
     
     public static func hide() {
-        window.isUserInteractionEnabled = true
+        if let _window = UIApplication.shared.delegate?.window, let window = _window {
+            window.isUserInteractionEnabled = true
+        }
+
         self.current?.superview?.removeFromSuperview()
     }
     
